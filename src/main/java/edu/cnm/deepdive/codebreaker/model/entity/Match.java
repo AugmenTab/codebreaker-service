@@ -26,6 +26,7 @@ import org.springframework.lang.NonNull;
 @SuppressWarnings("JpaDataSourceORMInspection")
 @Entity
 @Table(
+    name = "tournament",
     indexes = {
         @Index(columnList = "codeLength"),
         @Index(columnList = "gameCount"),
@@ -117,14 +118,6 @@ public class Match {
     this.gameCount = gameCount;
   }
 
-  @NonNull
-  public Criterion getCriterion() {
-    return criterion;
-  }
-
-  public void setCriterion(@NonNull Criterion criterion) {
-    this.criterion = criterion;
-  }
 
   @NonNull
   public Date getDeadline() {
@@ -138,7 +131,15 @@ public class Match {
   @NonNull
   public User getOriginator() {
     return originator;
+  }  @NonNull
+  public Criterion getCriterion() {
+    return criterion;
   }
+
+  public void setCriterion(@NonNull Criterion criterion) {
+    this.criterion = criterion;
+  }
+
 
   public void setOriginator(@NonNull User originator) {
     this.originator = originator;
